@@ -3,11 +3,14 @@
 Este é o repositório destinado ao app de nosso sistema de aprendizagem 😃
 
 no app haverá:
+- sistema de login e cadastro
+- sistema de cadastro de sensores de nível de gás
+- CRUD do sensor
+- edição de senha do usuário
 
+O principal objetivo do app é o monitoramento de gás
 
-O principal objetivo inicial do app 
-
-Baixe o arquivo e crie dentro da pasta 
+Baixe o arquivo e crie dentro da pasta GASALERT
 
 .env - exemplo:
 ```bash
@@ -26,3 +29,5 @@ npm install express pg dotenv bcryptjs
 ````
 
 Crie no pgAdmin, etc, o banco de dados que está na pasta -> banco de dados 
+
+Ele estará rodando na porta http://localhost:3000/
