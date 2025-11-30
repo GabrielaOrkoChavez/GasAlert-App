@@ -2,13 +2,13 @@
 
 Este é o repositório destinado ao app de nosso sistema de aprendizagem 😃
 
-no app haverá:
+No app haverá:
 - sistema de login e cadastro
 - sistema de cadastro de sensores de nível de gás
 - CRUD do sensor
 - edição de senha do usuário
 
-O principal objetivo do app é o monitoramento de gás
+O principal objetivo do app é o monitoramento de gás.
 
 Baixe o arquivo e crie dentro da pasta GASALERT
 
@@ -22,7 +22,7 @@ DB_NAME=teste
 DB_PORT=5432
 PORT=3000
 ````
-Instalar dependencias
+Instalar dependências
 ```bash
 npm init -y
 npm install express pg dotenv bcryptjs
