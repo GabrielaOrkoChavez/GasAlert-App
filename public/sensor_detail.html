@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/detalhedosensor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <title>Detalhes do Sensor</title>
+</head>
+<body>
+    <div class="container">
+        <a href="#" id="backToHome">&lsaquo;</a>
+        <h1 id="sensorNameTitle">Detalhes do Sensor</h1>
+        
+        <div class="sensor-actions">
+            <button id="editButton" class="action-btn edit-btn">Editar Sensor</button>
+            <button id="deleteButton" class="action-btn delete-btn">Excluir Sensor</button>
+        </div>
+        <div id="sensorDetailContainer" class="sensor-detail-card">
+            <div class="gauge-container">
+                <svg class="gauge-svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#333" stroke-width="6" stroke-dasharray="141.37" stroke-dashoffset="35.34" transform="rotate(-135 50 50)"/>
+                    <line x1="50" y1="5" x2="50" y2="10" stroke="#333" stroke-width="2" transform="rotate(-135 50 50)"/>
+                    <line x1="50" y1="5" x2="50" y2="10" stroke="#333" stroke-width="2" transform="rotate(-90 50 50)"/>
+                    <line x1="50" y1="5" x2="50" y2="10" stroke="#333" stroke-width="2" transform="rotate(-45 50 50)"/>
+                    <line x1="50" y1="5" x2="50" y2="10" stroke="#333" stroke-width="2" transform="rotate(0 50 50)"/>
+                    <line x1="50" y1="5" x2="50" y2="10" stroke="#333" stroke-width="2" transform="rotate(45 50 50)"/>
+                    <line x1="50" y1="5" x2="50" y2="10" stroke="#333" stroke-width="2" transform="rotate(90 50 50)"/>
+                    <line x1="50" y1="5" x2="50" y2="10" stroke="#333" stroke-width="2" transform="rotate(135 50 50)"/>
+
+                    <path id="gaugeArrow" class="arrow" d="M49 50 L51 50 L50 20 Z" fill="#333" stroke="#333" transform="rotate(-135 50 50)"/>
+                </svg>
+                <p class="gauge-label">Nível</p>
+                <p id="gaugeValue" class="gauge-value">---</p>
+                <p id="gaugeStatusText" class="gauge-status-text">-- status --</p>
+            </div>
+
+            <div class="sensor-info-block">
+                <p>ID do Sensor: <strong id="sensorIdDisplay">--</strong></p>
+                <p>Status: <span id="detailedStatus" class="status-text">--</span> <span id="detailedStatusIcon"></span></p>
+                <p>Nível atual: <strong id="detailedLevel">--</strong> ppm</p>
+                
+                <p class="last-update">Última atualização: <span id="lastUpdateTimestamp">--</span></p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="sideMenu" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" id="closeMenuBtn">&times;</a>
+        <button id="btnMinhaConta">Minha Conta</button>
+        <button id="btnCadastrarOutraConta">Cadastrar Outra Conta</button>
+        <button id="btnSairDaConta" class="sairdc">Sair da Conta</button>
+    </div>
+
+    <div class="barrainferior">
+        <img id="inicio" src="imagens/icon-home.png" >
+        <img id="btnhistorico" src="imagens/icon-hist.png">
+        <img id="btnGerenciarPerfil" src="imagens/icon-person.png">
+        <img id="btnOpenConfig" src="imagens/icon-config.png">
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // A lógica de inicialização é toda gerenciada pelo dashboard.js
+        });
+
+        document.getElementById('btnhistorico').addEventListener('click', () => {
+            navigate('historico');
+        });
+
+        document.getElementById('inicio').addEventListener('click', () => {
+            navigate('home');
+        });
+
+        document.getElementById('btnGerenciarPerfil').addEventListener('click', () => {
+            navigate('user_profile');
+        });
+
+                // --- LÓGICA DO MENU LATERAL ---
+        const sideMenu = document.getElementById('sideMenu');
+        
+        // Abrir o menu ao clicar no ícone de configurações
+        document.getElementById('btnOpenConfig').addEventListener('click', () => {
+            sideMenu.style.width = '70%'; // Ocupa 70% da tela
+        });
+
+        // Fechar o menu ao clicar no 'x'
+        document.getElementById('closeMenuBtn').addEventListener('click', () => {
+            sideMenu.style.width = '0';
+        });
+
+        // Opções do menu lateral
+        document.getElementById('btnMinhaConta').addEventListener('click', () => {
+            sideMenu.style.width = '0'; // Fecha o menu primeiro
+            navigate('user_profile');
+        });
+
+        document.getElementById('btnCadastrarOutraConta').addEventListener('click', () => {
+            sideMenu.style.width = '0'; // Fecha o menu primeiro
+            // Redireciona para o cadastro (ou login, dependendo do fluxo desejado)
+            window.location.href = '/register.html'; 
+        });
+
+        document.getElementById('btnSairDaConta').addEventListener('click', () => {
+            // Este é o mesmo que o Logout principal, limpa a sessão e volta para a tela inicial
+            window.location.href = '/index.html'; 
+        });
+    </script>
+</body>
+</html>

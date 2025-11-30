@@ -1,0 +1,276 @@
+body { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('../imagens/fundolindo_v2.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    background-attachment: fixed;
+    margin: 0;
+    box-sizing: border-box;  
+    user-select: none; 
+    font-family: 'hind';
+}
+
+.logo-area img{
+    width: 400px;
+    max-width: 90vw; 
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+        
+.container { 
+    max-width: 900px; 
+    width: 100%; 
+    padding: 30px; 
+    border-radius: 12px; 
+    margin-bottom: 50px; 
+}
+        
+h1 { 
+    color: #000; 
+    text-align: center; 
+    margin-bottom: 30px; 
+    border-bottom: 2px solid #f0f4f8; 
+    padding-bottom: 15px; 
+}
+        
+#backToHome{
+    position: absolute; /* Posição fixa no topo esquerdo */
+    top: 30px;
+    left: 20px;
+    font-size: 50px; /* Tamanho grande para a seta */
+    color: #0d47a1; /* Azul escuro similar ao da imagem */
+    text-decoration: none;
+    line-height: 1;
+    font-weight: 700;
+}
+
+        /* Estilo para a mensagem de "Não há sensores" */
+        .no-sensors {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .no-sensors h2 {
+            font-size: 35px;
+            color: #042959; 
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .no-sensors button {
+            background-color: #BF212E; 
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .no-sensors button:hover {
+            background-color: #1e7e34;
+        }
+
+        /* Estilos para os cards de sensores */
+        .sensors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .sensor-card {
+            background-color: #617A99;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer; 
+        }
+        .sensor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .sensor-info {
+            flex-grow: 1;
+        }
+        .sensor-info h3 {
+            margin: 0 0 5px 0;
+            color: #000;
+            font-size: 1.2em;
+        }
+        .sensor-info p {
+            margin: 3px 0;
+            font-size: 0.95em;
+            color: #000;
+        }
+        .sensor-info .status-text {
+            font-weight: bold;
+            font-size: 1em;
+        }
+        
+        /* Cores dos textos de status */
+        .status-normal-text { color: #155625; } 
+        .status-atenção-text { color: #ffc107; } 
+        .status-alerta-vazamento-text { color: #dc3545; } 
+        .status-baixo-nível-text { color: #007bff; } 
+        .status-inativo-text { color: #6c757d; } 
+
+        .sensor-status-indicator {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em; 
+            font-weight: bold;
+            color: white; 
+            margin-left: 20px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cores de fundo dos indicadores de status */
+        .status-normal { background-color: #28a745; } 
+        .status-atenção { background-color: #ffc107; } 
+        .status-alerta-vazamento { background-color: #dc3545; } 
+        .status-baixo-nível { background-color: #007bff; } 
+        .status-inativo { background-color: #6c757d; } 
+
+.barrainferior {
+    background-color: #042959;
+    width: 100%;
+    height: 70px;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+    align-items: center;
+}
+
+
+.barrainferior img {
+    height: 40px;
+    padding: 15px 50px;
+    transition: all 0.3s ease;
+    backface-visibility: hidden;
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.barrainferior img:hover {
+    background-color: #0b4f8a;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+
+    body{
+        background-position: center;
+    }
+    .logo-area{
+        margin-bottom: 20px;
+    }
+    .logo-area img{
+        width: 290px;
+        margin-top: 100px;
+    }
+
+    .barrainferior {
+        display: flex; 
+        justify-content: space-around; 
+        align-items: center; 
+    }
+
+    .barrainferior a{
+        cursor: pointer;
+        padding: 0 10px; 
+    }
+
+    .barrainferior img {
+        padding: 10px 10px; 
+    }
+}
+
+/* --- Estilos do Menu Lateral (Sidebar) --- */
+
+.sidebar {
+    height: 100%; /* Ocupa a altura total */
+    width: 0; /* Começa fechado */
+    position: fixed; 
+    z-index: 100; /* Garante que fique acima de outros elementos */
+    top: 0;
+    right: 0; /* Fixa na direita */
+    background-color: #f7f7f7; /* Cor de fundo clara */
+    overflow-x: hidden; /* Desabilita a rolagem horizontal */
+    transition: 0.5s; /* Efeito de transição suave */
+    padding-top: 150px; /* Espaço para o botão de fechar */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* Botão de fechar (X) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    text-decoration: none;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Título e botões dentro do menu */
+.sidebar h3 {
+    padding: 8px 8px 8px 32px;
+    text-align: center;
+    font-size: 20px;
+    color: #E34842;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    width: 80%;
+}
+
+.sidebar button {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #333;
+    display: block;
+    border: none;
+    background: none;
+    text-align: left;
+    width: 80%; /* Largura para os botões */
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.sidebar button:hover {
+    background-color: #ddd;
+    color: #042959;
+}
+
+/* Ajuste do rodapé para que não seja coberto pelo menu */
+.barrainferior {
+    z-index: 1; /* Garante que fique abaixo do menu lateral (z-index: 100) */
+}
+
+.sidebar .sairdc{
+    color: #E34842;
+}

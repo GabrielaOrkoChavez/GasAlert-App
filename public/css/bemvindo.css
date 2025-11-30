@@ -1,0 +1,105 @@
+body {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column; 
+    min-height: 100vh; 
+    background-image: url('../imagens/fundolindo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    margin: 0; 
+}
+
+.logo-area{
+    text-align: center;
+    margin: 20px 0; 
+}
+
+.logo-area img{
+    width: 470px;
+    max-width: 90vw; 
+}
+
+
+.boas-vindas h2{
+    font-family: 'Hammersmith One';
+    color: #042959;
+    font-weight: 400;
+    text-align: center;
+    font-size: 50px;
+}
+
+.boas-vindas p{
+    font-family: 'Hind';
+    color: #042959;
+    font-weight: 400;
+    text-align: center;
+    font-size: 20px;
+}
+
+.botoes-acao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Hind';
+}
+
+.botoes-acao button{
+    font-size: 28px;
+    color: white;
+    background-color: #BF212E;
+    height: 55px;
+    width: 250px;
+    padding: 3px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    outline: none; 
+    box-shadow: #3f4a5a 0px 4px 3px;
+}
+
+
+.botoes-acao a{
+    color: black;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+
+    body{
+        background-position: center;
+    }
+    /* Diminui a margem superior/inferior do logo */
+    .logo-area{
+        margin: 40px 0;
+    }
+
+    /* Diminui o tamanho do título principal em telas menores */
+    .boas-vindas h2{
+        font-size: 40px;
+    }
+    
+    /* Diminui o tamanho da fonte do parágrafo */
+    .boas-vindas p{
+        font-size: 14px;
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+
+    /* Ajusta o botão para se adaptar melhor a telas menores */
+    .botoes-acao button{
+        font-size: 24px;
+        height: 50px;
+        width: 210px; 
+        margin-top: 10px;
+        text-align: center;
+    }
+
+  
+
+    .botoes-acao{
+        margin-top: 50px;
+    }
+}

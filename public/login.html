@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-arrow">&lsaquo;</a>
+        <div class="iconepessoa">
+        <img src="imagens/icone_pessoa.png">
+        </div>
+        <form id="authForm" class="login-form">
+            <label>Username/Email</label>
+            <input type="text" id="username"  required>
+            <label>Password</label>
+            <input type="password" id="password"  required>
+            
+            <button type="submit" onclick="handleSubmit('login', event)">Prosseguir</button>
+        </form>
+        
+        <p>Não tem uma conta? <a href="register.html">Cadastre-se</a></p>
+        <div id="message"></div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

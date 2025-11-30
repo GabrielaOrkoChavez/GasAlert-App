@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>Cadastro de Usuário</title>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-arrow">&lsaquo;</a>
+        
+        <div class="iconepessoa">
+            <img src="imagens/icone_pessoa.png">
+        </div>
+
+        <form id="authForm" class="cadastro-form">
+            <label>Username</label>
+            <input type="text" id="username"  required>
+            <label>Email</label>
+            <input type="email" id="email"  required>
+            <label>Password</label>
+            <input type="password" id="password"  required>
+            <label>Confirm password</label>
+            <input type="password" id="confirm_password" required>
+            
+            <button type="submit" onclick="handleSubmit('register', event)">Cadastrar</button>
+        </form>
+
+        <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+        <div id="message"></div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

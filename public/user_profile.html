@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <title>Gerenciar Perfil</title>
+</head>
+<body>
+    <a href="#" id="backToHome">&lsaquo;</a>
+    <div class="container">
+        <h1>Gerenciar Perfil</h1>
+
+        <div id="message"></div>
+
+        <div id="profileDetails">
+            <div class="profile-header">
+                <div class="profile-picture">
+                    <span id="initialsDisplay">?</span>
+                </div>
+                <h2 id="usernameDisplay">Carregando Nome...</h2>
+            </div>
+            
+            <div class="info-block">
+                <p>Email: <strong id="profileEmailDisplay">carregando@email.com</strong></p>
+                <p>Senha: <strong style="color: #E34842;">(Apenas pode ser alterada abaixo)</strong></p>
+            </div>
+
+            <div class="form-section">
+                <h2>Alterar Senha de Acesso</h2>
+                <form id="changePasswordForm">
+                    <label for="currentPassword">Senha Atual:</label>
+                    <input type="password" id="currentPassword" required>
+                    
+                    <label for="newPassword">Nova Senha:</label>
+                    <input type="password" id="newPassword" required>
+
+                    <label for="confirmNewPassword">Confirmar Nova Senha:</label>
+                    <input type="password" id="confirmNewPassword" required>
+                    
+                    <button type="submit" class="btn-submit">Alterar Senha</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="sideMenu" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" id="closeMenuBtn">&times;</a>
+        <button id="btnMinhaConta">Minha Conta</button>
+        <button id="btnCadastrarOutraConta">Cadastrar Outra Conta</button>
+        <button id="btnSairDaConta" class="sairdc">Sair da Conta</button>
+    </div>
+
+    <div class="barrainferior">
+        <img id="inicio" src="imagens/icon-home.png" >
+        <img id="btnhistorico" src="imagens/icon-hist.png">
+        <img src="imagens/icon-person.png">
+        <img id="btnOpenConfig" src="imagens/icon-config.png">
+    </div>
+
+    <script>
+        document.getElementById('btnhistorico').addEventListener('click', () => {
+            navigate('historico');
+        });
+
+        // --- LÓGICA DO MENU LATERAL ---
+        const sideMenu = document.getElementById('sideMenu');
+        
+        // Abrir o menu ao clicar no ícone de configurações
+        document.getElementById('btnOpenConfig').addEventListener('click', () => {
+            sideMenu.style.width = '70%'; // Ocupa 70% da tela
+        });
+
+        // Fechar o menu ao clicar no 'x'
+        document.getElementById('closeMenuBtn').addEventListener('click', () => {
+            sideMenu.style.width = '0';
+        });
+
+        // Opções do menu lateral
+        document.getElementById('btnMinhaConta').addEventListener('click', () => {
+            sideMenu.style.width = '0'; // Fecha o menu primeiro
+            navigate('user_profile');
+        });
+
+        document.getElementById('btnCadastrarOutraConta').addEventListener('click', () => {
+            sideMenu.style.width = '0'; // Fecha o menu primeiro
+            // Redireciona para o cadastro (ou login, dependendo do fluxo desejado)
+            window.location.href = '/register.html'; 
+        });
+
+        document.getElementById('btnSairDaConta').addEventListener('click', () => {
+            // Este é o mesmo que o Logout principal, limpa a sessão e volta para a tela inicial
+            window.location.href = '/index.html'; 
+        });
+    </script>
+    <script src="profile.js"></script> 
+</body>
+</html>

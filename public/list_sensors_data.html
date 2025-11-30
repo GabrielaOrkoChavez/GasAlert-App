@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/atvsensores.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <title>Meus Sensores</title>
+</head>
+<body>
+    <div class="logo-area">
+        <img src="imagens/logo_v3.png">
+    </div>
+    <div class="container">
+        <a href="#" id="backToHome">&lsaquo;</a>
+        <div id="message"></div>
+
+        <div id="sensorsDisplay">
+              <div class="loading-message">Carregando sensores...</div>
+        </div>
+    </div>
+
+    <div id="sideMenu" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" id="closeMenuBtn">&times;</a>
+        <button id="btnMinhaConta">Minha Conta</button>
+        <button id="btnCadastrarOutraConta">Cadastrar Outra Conta</button>
+        <button id="btnSairDaConta" class="sairdc">Sair da Conta</button>
+    </div>
+
+    <div class="barrainferior">
+        <img id="inicio" src="imagens/icon-home.png" >
+        <img id="btnhistorico" src="imagens/icon-hist.png">
+        <img id="btnGerenciarPerfil" src="imagens/icon-person.png">
+        <img id="btnOpenConfig" src="imagens/icon-config.png">
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // initializePage() é chamado automaticamente pelo listener no dashboard.js
+            fetchSensors(); 
+        });
+        
+        document.getElementById('btnGerenciarPerfil').addEventListener('click', () => {
+            navigate('user_profile');
+        });
+
+        document.getElementById('btnhistorico').addEventListener('click', () => {
+            navigate('historico');
+        });
+
+        document.getElementById('inicio').addEventListener('click', () => {
+            navigate('home');
+        });
+        // A função 'navigate' DUPLICADA FOI REMOVIDA DAQUI.
+        // O sistema usará a função 'navigate(page, sensorId)' definida em dashboard.js,
+        // corrigindo o erro de URL ao clicar no card do sensor.
+
+        // --- LÓGICA DO MENU LATERAL ---
+        const sideMenu = document.getElementById('sideMenu');
+        
+        // Abrir o menu ao clicar no ícone de configurações
+        document.getElementById('btnOpenConfig').addEventListener('click', () => {
+            sideMenu.style.width = '70%'; // Ocupa 70% da tela
+        });
+
+        // Fechar o menu ao clicar no 'x'
+        document.getElementById('closeMenuBtn').addEventListener('click', () => {
+            sideMenu.style.width = '0';
+        });
+
+        // Opções do menu lateral
+        document.getElementById('btnMinhaConta').addEventListener('click', () => {
+            sideMenu.style.width = '0'; // Fecha o menu primeiro
+            navigate('user_profile');
+        });
+
+        document.getElementById('btnCadastrarOutraConta').addEventListener('click', () => {
+            sideMenu.style.width = '0'; // Fecha o menu primeiro
+            // Redireciona para o cadastro (ou login, dependendo do fluxo desejado)
+            window.location.href = '/register.html'; 
+        });
+
+        document.getElementById('btnSairDaConta').addEventListener('click', () => {
+            // Este é o mesmo que o Logout principal, limpa a sessão e volta para a tela inicial
+            window.location.href = '/index.html'; 
+        });
+    </script>
+</body>
+</html>

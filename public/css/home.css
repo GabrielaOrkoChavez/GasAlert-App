@@ -1,0 +1,198 @@
+ body { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('../imagens/fundolindo_v2.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    box-sizing: border-box;  
+    user-select: none; 
+}
+
+.logo-area img{
+    width: 400px;
+    max-width: 90vw; 
+    margin-top: 20px;
+}
+        
+        
+h1{
+    margin-top: 0;
+    font-family: 'Hammersmith One';
+    color: #042959;
+    font-weight: 400;
+    text-align: center;
+    font-size: 50px;
+}
+
+.btn-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+        
+.btn-group button {
+    font-family: 'Hind';
+    font-weight: 300;
+    font-size: 28px;
+    color: white;
+    background-color: #E34842;
+    height: 90px;
+    width: 370px;
+    padding: 3px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    outline: none; 
+    margin-bottom: 30px;
+    box-shadow: #3f4a5a 0px 4px 3px;
+}
+
+#btnCadastrarSensor{
+    height: 65px;
+}
+       
+
+.barrainferior {
+    background-color: #042959;
+    width: 100%;
+    height: 70px;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+    align-items: center;
+}
+
+
+.barrainferior img {
+    height: 40px;
+    padding: 15px 50px;
+    transition: all 0.3s ease;
+    backface-visibility: hidden;
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.barrainferior img:hover {
+    background-color: #0b4f8a;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+
+    body{
+        background-position: center;
+    }
+    .logo-area{
+        margin-bottom: 20px;
+    }
+    .logo-area img{
+        width: 290px;
+        margin-top: 100px;
+    }
+
+    h1{
+        margin-top: 0;
+        font-size: 40px;
+    }
+
+    .btn-group button{
+        font-size: 23px;
+        width: 280px;
+    }
+
+    .barrainferior {
+        display: flex; 
+        justify-content: space-around; 
+        align-items: center; 
+    }
+
+    .barrainferior a{
+        cursor: pointer;
+        padding: 0 10px; 
+    }
+
+    .barrainferior img {
+        padding: 10px 10px; 
+    }
+}
+
+/* --- Estilos do Menu Lateral (Sidebar) --- */
+
+.sidebar {
+    height: 100%; /* Ocupa a altura total */
+    width: 0; /* Começa fechado */
+    position: fixed; 
+    z-index: 100; /* Garante que fique acima de outros elementos */
+    top: 0;
+    right: 0; /* Fixa na direita */
+    background-color: #f7f7f7; /* Cor de fundo clara */
+    overflow-x: hidden; /* Desabilita a rolagem horizontal */
+    transition: 0.5s; /* Efeito de transição suave */
+    padding-top: 150px; /* Espaço para o botão de fechar */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* Botão de fechar (X) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    text-decoration: none;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Título e botões dentro do menu */
+.sidebar h3 {
+    padding: 8px 8px 8px 32px;
+    text-align: center;
+    font-size: 20px;
+    color: #E34842;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    width: 80%;
+}
+
+.sidebar button {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #333;
+    display: block;
+    border: none;
+    background: none;
+    text-align: left;
+    width: 80%; /* Largura para os botões */
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.sidebar button:hover {
+    background-color: #ddd;
+    color: #042959;
+}
+
+/* Ajuste do rodapé para que não seja coberto pelo menu */
+.barrainferior {
+    z-index: 1; /* Garante que fique abaixo do menu lateral (z-index: 100) */
+}
+
+.sidebar .sairdc{
+    color: #E34842;
+}
